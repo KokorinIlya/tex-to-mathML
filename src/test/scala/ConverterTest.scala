@@ -8,15 +8,22 @@ class ConverterTest extends FlatSpec{
     Files.newBufferedReader(path).lines().collect(Collectors.joining("\n"))
   }
 
-  private def testEqual(testNumber: Int) = {
+  private def convertToMathML(testNumber: Int) = {
     val pathToTex = Paths.get(s"src/test/resources/tex/$testNumber.tex")
-    val mathML = Converter.fromFile(pathToTex)
+    Converter.fromFile(pathToTex)
+  }
 
+  private def testEqual(testNumber: Int) = {
+    val mathML = convertToMathML(testNumber)
     val pathToMathML = Paths.get(s"src/test/resources/mathML/$testNumber.html")
     assert(mathML == getFromFile(pathToMathML))
   }
 
   "Tex to MathML converter" should "convert trivial expression" in {
     testEqual(1)
+  }
+
+  it should "convert * and + expressions" in {
+    testEqual(2)
   }
 }
