@@ -30,4 +30,8 @@ class ConverterTest extends FlatSpec{
   it should "convert string with parentheses" in {
     testEqual(3)
   }
+
+  it should "parse string with subexpressions" in {
+    testEqual(4)
+  }
 }
