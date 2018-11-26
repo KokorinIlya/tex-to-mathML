@@ -34,4 +34,8 @@ class ConverterTest extends FlatSpec{
   it should "parse string with subexpressions" in {
     testEqual(4)
   }
+
+  it should "parse string with upper expressions in" in {
+    testEqual(5)
+  }
 }
