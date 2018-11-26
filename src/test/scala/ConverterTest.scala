@@ -26,4 +26,8 @@ class ConverterTest extends FlatSpec{
   it should "convert * and + expressions" in {
     testEqual(2)
   }
+
+  it should "convert string with parentheses" in {
+    testEqual(3)
+  }
 }
