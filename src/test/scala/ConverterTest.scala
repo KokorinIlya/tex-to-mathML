@@ -38,4 +38,8 @@ class ConverterTest extends FlatSpec{
   it should "parse string with upper expressions in" in {
     testEqual(5)
   }
+
+  it should "parse ()^{}-strings" in {
+    testEqual(6)
+  }
 }
