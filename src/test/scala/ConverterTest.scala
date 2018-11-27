@@ -42,4 +42,8 @@ class ConverterTest extends FlatSpec{
   it should "parse ()^{}-strings" in {
     testEqual(6)
   }
+
+  it should "parse strings with =" in {
+    testEqual(7)
+  }
 }
