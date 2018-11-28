@@ -3,7 +3,7 @@ import java.util.stream.Collectors
 
 import org.scalatest.FlatSpec
 
-class ConverterTest extends FlatSpec{
+class ConverterTest extends FlatSpec {
   private def getFromFile(path: Path) = {
     Files.newBufferedReader(path).lines().collect(Collectors.joining("\n"))
   }
@@ -45,5 +45,9 @@ class ConverterTest extends FlatSpec{
 
   it should "parse strings with =" in {
     testEqual(7)
+  }
+
+  it should "parse strings with nested _ and ^" in {
+    testEqual(8)
   }
 }

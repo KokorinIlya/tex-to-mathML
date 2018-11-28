@@ -46,6 +46,10 @@ atom returns [Expression expr] :
         {$expr = new UnaryMinus($otherAtom.expr);}
     | OPEN_PAR inner=expression CLOSE_PAR
         {$expr = new Parenthesis($inner.expr);}
+    | basic=atom DOWN OPEN_BRACKET sub=addition CLOSE_BRACKET UP OPEN_BRACKET upper=addition CLOSE_BRACKET
+                {$expr = new SubSup($basic.expr, $sub.expr, $upper.expr);}
+    | basic=atom UP OPEN_BRACKET upper=addition CLOSE_BRACKET DOWN OPEN_BRACKET sub=addition CLOSE_BRACKET
+                {$expr = new SubSup($basic.expr, $sub.expr, $upper.expr);}
     | basic=atom UP OPEN_BRACKET upper=addition CLOSE_BRACKET
             {$expr = new Sup($basic.expr, $upper.expr);}
     | basic=atom DOWN OPEN_BRACKET sub=addition CLOSE_BRACKET

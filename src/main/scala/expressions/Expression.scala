@@ -38,6 +38,12 @@ case class Sub(basic: Expression, under: Expression) extends Expression {
   }
 }
 
+case class SubSup(basic: Expression, under: Expression, upper: Expression) extends Expression {
+  override def toMathML: String = {
+    s"<msubsup> ${basic.toMathML} ${under.toMathML} ${upper.toMathML} </msubsup>"
+  }
+}
+
 sealed trait BinaryOperation extends Expression {
   val left: Expression
   val right: Expression
